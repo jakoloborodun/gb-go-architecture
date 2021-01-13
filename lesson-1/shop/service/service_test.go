@@ -27,7 +27,7 @@ func TestCreateItem(t *testing.T) {
 
 	item1 := &models.Item{
 		Name:  "",
-		Price: 342.0,
+		Price: 34200,
 	}
 	_, err := s.CreateItem(item1)
 	if err.Error() != "item name is empty" {
