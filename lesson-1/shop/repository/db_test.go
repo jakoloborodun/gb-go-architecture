@@ -149,3 +149,19 @@ func TestMapDB_DeleteItem(t *testing.T) {
 	require.Error(t, err)
 	require.Empty(t, item2)
 }
+
+func TestMapDB_GetAllItems(t *testing.T) {
+	clearMockDB()
+
+	for i := 0; i < 5; i++ {
+		createRandomItem(t)
+	}
+
+	items, err := mDB.GetAllItems()
+	require.NoError(t, err)
+	require.Len(t, items, 5)
+
+	for _, item := range items {
+		require.NotEmpty(t, item)
+	}
+}

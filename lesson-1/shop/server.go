@@ -117,3 +117,19 @@ func (s *shopHandler) updateItemHandler(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 }
+
+func (s *shopHandler) getAllItemsHandler(w http.ResponseWriter, r *http.Request) {
+	items, err := s.db.GetAllItems()
+	if err != nil {
+		log.Println(err)
+		json.NewEncoder(w).Encode(map[string]bool{"ok": false})
+		return
+	}
+
+	err = json.NewEncoder(w).Encode(items)
+	if err != nil {
+		log.Println(err)
+		json.NewEncoder(w).Encode(map[string]bool{"ok": false})
+		return
+	}
+}
