@@ -78,7 +78,7 @@ func (m *mapDB) UpdateItem(item *models.Item) (*models.Item, error) {
 }
 
 func (m *mapDB) GetAllItems() ([]models.Item, error) {
-	items := []models.Item{}
+	items := make([]models.Item, 0, len(m.db))
 
 	for _, item := range m.db {
 		items = append(items, *item)
