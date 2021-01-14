@@ -1,7 +1,7 @@
 package models
 
 type Item struct {
-	ID    int32   `json:"id"`
-	Name  string  `json:"name"`
-	Price float64 `json:"price"`
+	ID    int32  `json:"id"`
+	Name  string `json:"name"`
+	Price int64  `json:"price"`
 }

@@ -11,6 +11,7 @@ type Repository interface {
 	GetItem(ID int32) (*models.Item, error)
 	DeleteItem(ID int32) error
 	UpdateItem(item *models.Item) (*models.Item, error)
+	GetAllItems() ([]models.Item, error)
 }
 
 type mapDB struct {
@@ -74,4 +75,14 @@ func (m *mapDB) UpdateItem(item *models.Item) (*models.Item, error) {
 		Name:  updateItem.Name,
 		Price: updateItem.Price,
 	}, nil
+}
+
+func (m *mapDB) GetAllItems() ([]models.Item, error) {
+	items := make([]models.Item, 0, len(m.db))
+
+	for _, item := range m.db {
+		items = append(items, *item)
+	}
+
+	return items, nil
 }

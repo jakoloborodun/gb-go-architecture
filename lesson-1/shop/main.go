@@ -35,6 +35,7 @@ func main() {
 	router.HandleFunc("/item/{id}", handler.getItemHandler).Methods("GET")
 	router.HandleFunc("/item/{id}", handler.deleteItemHandler).Methods("DELETE")
 	router.HandleFunc("/item/{id}", handler.updateItemHandler).Methods("PUT")
+	router.HandleFunc("/items", handler.getAllItemsHandler).Methods("GET")
 
 	srv := &http.Server{
 		Addr: webAddr,
