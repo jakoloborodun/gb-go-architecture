@@ -43,7 +43,7 @@ func main() {
 
 	db := repository.NewMapDB()
 
-	smtp, err := smtpserv.NewSmtpServer(cfg.Smtp.Host, cfg.Smtp.Port, cfg.Smtp.From, cfg.Smtp.Pass)
+	smtp, err := smtpserv.NewSmtpClient(cfg.Smtp.Host, cfg.Smtp.Port, cfg.Smtp.From, cfg.Smtp.Pass)
 	if err != nil {
 		log.Fatal("Unable to load SMTP server")
 	}

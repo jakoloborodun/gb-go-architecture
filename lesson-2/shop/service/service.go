@@ -18,7 +18,7 @@ type Service interface {
 type service struct {
 	tg   tg.TelegramAPI
 	db   rep.Repository
-	smtp smtpserv.SmtpServer
+	smtp smtpserv.SmtpClient
 }
 
 func (s *service) CreateOrder(order *models.Order) (*models.Order, error) {
@@ -53,7 +53,7 @@ func (s *service) CreateItem(item *models.Item) (*models.Item, error) {
 	return s.db.CreateItem(item)
 }
 
-func NewService(tg tg.TelegramAPI, db rep.Repository, smtp smtpserv.SmtpServer) Service {
+func NewService(tg tg.TelegramAPI, db rep.Repository, smtp smtpserv.SmtpClient) Service {
 	return &service{
 		db:   db,
 		tg:   tg,
