@@ -1,9 +1,11 @@
 server:
-  debug: on
-  listen: ":8080"
-  domain: "localhost"
+  port: "8080"
+  host: "localhost"
 
 telegram:
-  bot-token: "12341234124"
-  chat-id: 12341234
-  msg-template-file: "./template/telegram.tmpl"
+  bot-token: "1555573368:AAHcCGDLcwHrw37mreAsRSewUIMyHJqeuPE"
+  chat-id: 235107063
+
+smtp:
+  host: "smtp.gmail.com"
+  port: "587"
